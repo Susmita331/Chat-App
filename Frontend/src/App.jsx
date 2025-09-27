@@ -4,9 +4,11 @@ import Right from './home/right/right'
 function App(){
   return (
     <>
-    App
+    <div className='flex h-screen'>
     <Left></Left>
     <Right></Right>
+    </div>
+    
     </>
   )
 }
