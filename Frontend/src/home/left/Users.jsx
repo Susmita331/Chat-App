@@ -10,7 +10,7 @@ function Users() {
   ];
 
   return (
-    <div style={{ maxHeight: "calc(92vh)" }} className="overflow-y-auto">
+    <div className="overflow-y-auto" style={{ maxHeight: "calc(92vh - 60px)" }}>
       {testUsers.map((u) => (
         <User key={u._id} user={u} />
       ))}
