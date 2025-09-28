@@ -77,4 +77,4 @@ export const allUsers = async (req, res) => {
   } catch (error) {
     console.log("Error in allUsers Controller: " + error);
   }
-}; this is the final code of my mentors for the usercontroller
+};
