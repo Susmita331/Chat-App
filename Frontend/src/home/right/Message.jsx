@@ -3,18 +3,13 @@ import Messages from './Messages'
 function Message(){
     return (
         <>
-        <div>
+        <div className='' style={{minHeight: "calc(92vh -8vh"}}>
             <Messages></Messages>
             <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
-            <Messages></Messages>
+            
+
+
+            
         </div>
 
         </>
