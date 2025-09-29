@@ -1,29 +1,22 @@
 import React from "react";
-import useConversation from "../../statemanage/useConversation";
+import Users from "./Users";
+import useGetAllUsers from "../../context/useGetAllUsers";
 
-function User({ user }) {
-  const { selectedConversation, setSelectedConversation } = useConversation();
-  const isSelected = selectedConversation?._id === user._id;
-
+function User() {
+  const [allUsers] = useGetAllUsers();
+  console.log(allUsers);
   return (
-    <div
-      onClick={() => setSelectedConversation(user)}
-      className={`flex items-center space-x-4 px-6 py-4 cursor-pointer duration-300
-        hover:bg-slate-700 
-        ${isSelected ? "bg-slate-800" : ""}`}
-    >
-      <div className="avatar">
-        <div className="w-14 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
-          <img
-            src={user.avatar}
-            alt={`${user.name} avatar`}
-          />
-        </div>
-      </div>
-
-      <div>
-        <h1 className="font-bold">{user.name}</h1>
-        <span className="text-sm text-gray-400">{user.email}</span>
+    <div>
+      <h1 className="px-8 py-2 text-white font-semibold bg-slate-800 rounded-md">
+        Messages
+      </h1>
+      <div
+        className="py-2 flex-1 overflow-y-auto"
+        style={{ maxHeight: "calc(84vh - 10vh)" }}
+      >
+        {allUsers.map((user, index) => (
+          <User key={index} user={user} />
+        ))}
       </div>
     </div>
   );
