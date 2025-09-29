@@ -1,17 +1,15 @@
 import React from "react";
 import User from "./User";
 
+import useGetAllUsers from "../../context/useGetAllUsers";
 function Users() {
-  // temporary mock data so screen isn't empty
-  const testUsers = [
-    { _id: 1, name: "Susmita Chakrabarty", email: "susmitachy@gmail.com" },
-    { _id: 2, name: "Soumit Chakrabarty", email: "soumit@gmail.com" },
-    { _id: 3, name: "Priya Sharma", email: "priya@gmail.com" },
-  ];
+  const [allUsers, loading] = useGetAllUsers();
+
+  if (loading) return <p className="text-white px-6 py-4">Loading users...</p>;
 
   return (
     <div className="overflow-y-auto" style={{ maxHeight: "calc(92vh - 60px)" }}>
-      {testUsers.map((u) => (
+      {allUsers.map((u) => (
         <User key={u._id} user={u} />
       ))}
     </div>
