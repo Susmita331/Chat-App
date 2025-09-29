@@ -9,8 +9,8 @@ const createTokenAndSaveCookie = (userId, res) => {
 
   res.cookie("jwt", token, {
     httpOnly: true,   // prevents XSS (can’t access cookie in JS)
-    secure: true,     // only sent on HTTPS
-    sameSite: "strict" // helps protect against CSRF
+    secure: process.env.NODE_ENV === "production",     // only sent on HTTPS
+    sameSite: "lax" // helps protect against CSRF
   });
 };
 

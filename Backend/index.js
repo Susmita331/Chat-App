@@ -3,9 +3,12 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import userRoute from "./route/user.route.js"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 const app = express()
 dotenv.config();
-app.use(express.json())
+app.use(cors()); //Enable cors for all requests
+app.use(cookieParser());
+app.use(express.json());
 const PORT = process.env.PORT || 5001;
 const URI = process.env.MONGODB_URI;
 
@@ -16,8 +19,8 @@ try {
     console.log(error)
 
 }
-app.use("/user", userRoute);
-app.use(cors()); //Enable cors for all requests
+app.use("/api/user", userRoute);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
