@@ -4,8 +4,8 @@ import mongoose from "mongoose"
 import userRoute from "./route/user.route.js"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-import {app} from "socket.io/sever.js"
-const app = express()
+import {app, server} from "./Socket.io/sever.js"
+
 dotenv.config();
 app.use(cors()); //Enable cors for all requests
 app.use(cookieParser());
@@ -23,6 +23,6 @@ try {
 app.use("/api/user", userRoute);
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
