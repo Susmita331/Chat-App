@@ -4,6 +4,7 @@ import mongoose from "mongoose"
 import userRoute from "./route/user.route.js"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import {app} from "socket.io/sever.js"
 const app = express()
 dotenv.config();
 app.use(cors()); //Enable cors for all requests
